@@ -1,13 +1,15 @@
 import { env } from "./environment.js";
 
-const allowedOrigins = [env.FRONTEND_URL, "http://localhost:3000"].filter(
-  Boolean,
+const allowedOrigins = new Set(
+  [env.FRONTEND_URL, "http://localhost:3000"]
+    .filter(Boolean)
+    .map((url) => url.replace(/\/+$/, "")),
 );
 
 export const corsOptions = {
   origin: (origin, callback) => {
     // Allow requests with no origin (mobile apps, Postman, etc.)
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin || allowedOrigins.has(origin.replace(/\/+$/, ""))) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));

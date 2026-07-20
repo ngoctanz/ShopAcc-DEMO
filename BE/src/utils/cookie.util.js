@@ -3,22 +3,6 @@ import { env } from "../config/environment.js";
 const ACCESS_TOKEN_COOKIE = "accessToken";
 const REFRESH_TOKEN_COOKIE = "refreshToken";
 
-// Get domain for cookie (e.g., ".shopacvn.com" to share across subdomains)
-const getCookieDomain = () => {
-  if (env.NODE_ENV !== "production") return undefined;
-  // Extract root domain from FRONTEND_URL or use default
-  try {
-    const url = new URL(env.FRONTEND_URL || "https://shopacvn.com");
-    const parts = url.hostname.split(".");
-    if (parts.length >= 2) {
-      return "." + parts.slice(-2).join("."); // ".shopacvn.com"
-    }
-  } catch {
-    return ".shopacvn.com";
-  }
-  return undefined;
-};
-
 export const cookieUtils = {
   /**
    * Set access token cookie
@@ -32,7 +16,6 @@ export const cookieUtils = {
       sameSite: isProduction ? "none" : "lax", // "none" for cross-site cookies
       maxAge: 15 * 60 * 1000, // 15 minutes
       path: "/",
-      domain: getCookieDomain(),
     });
   },
 
@@ -48,7 +31,6 @@ export const cookieUtils = {
       sameSite: isProduction ? "none" : "lax", // "none" for cross-site cookies
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
       path: "/",
-      domain: getCookieDomain(),
     });
   },
 
@@ -70,7 +52,6 @@ export const cookieUtils = {
       secure: isProduction,
       sameSite: isProduction ? "none" : "lax",
       path: "/",
-      domain: getCookieDomain(),
     });
   },
 
@@ -84,7 +65,6 @@ export const cookieUtils = {
       secure: isProduction,
       sameSite: isProduction ? "none" : "lax",
       path: "/",
-      domain: getCookieDomain(),
     });
   },
 

@@ -5,8 +5,11 @@ dotenv.config();
 export const env = {
   // Application
   NODE_ENV: process.env.NODE_ENV || "development",
-  APP_HOST: process.env.APP_HOST || "localhost",
-  APP_PORT: process.env.APP_PORT || 3001,
+  APP_HOST:
+    (process.env.NODE_ENV || "development") === "production"
+      ? "0.0.0.0"
+      : process.env.APP_HOST || "localhost",
+  APP_PORT: process.env.PORT || process.env.APP_PORT || 3001,
 
   // Database
   MONGODB_URI: process.env.MONGODB_URI,
