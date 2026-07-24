@@ -5,6 +5,26 @@ Full-stack demo mô phỏng một nền tảng quản lý và phân phối tài 
 > [!WARNING]
 > Đây chỉ là phiên bản demo, không tổ chức, hỗ trợ hoặc phục vụ hoạt động mua bán, trao đổi vật phẩm hay tài khoản game ngoài thực tế. Người sử dụng phải tuân thủ pháp luật hiện hành và điều khoản của nhà phát hành. Dữ liệu, tài khoản, số dư và giao dịch trong hệ thống đều là dữ liệu mô phỏng phục vụ học tập.
 
+## Demo
+
+### Trang chủ
+
+![Trang chủ ShopAcc](FE/public/images/demo/Screenshot%20From%202026-07-24%2016-50-37.png)
+
+### Giao diện theo mùa và dark mode
+
+| Tết | Trung thu |
+| --- | --- |
+| ![Giao diện Tết](FE/public/images/demo/Screenshot%20From%202026-07-24%2016-50-44.png) | ![Giao diện Trung thu](FE/public/images/demo/Screenshot%20From%202026-07-24%2016-51-06.png) |
+
+### Mua tài khoản
+
+![Chi tiết tài khoản](FE/public/images/demo/Screenshot%20From%202026-07-24%2016-52-03.png)
+
+### Quản trị
+
+![Dashboard quản trị](FE/public/images/demo/Screenshot%20From%202026-07-24%2016-52-26.png)
+
 ## Chức năng
 
 ### Người dùng
@@ -43,6 +63,7 @@ Full-stack demo mô phỏng một nền tảng quản lý và phân phối tài 
 
 - Cổng thanh toán, nạp thẻ và webhook xử lý tiền thật.
 - PayOS và các tích hợp nhà cung cấp thanh toán.
+- WebSocket và các cập nhật thời gian thực.
 - Thông tin liên hệ, mạng xã hội và QR cá nhân.
 - Credential, API key và cấu hình production.
 
@@ -66,7 +87,7 @@ Chỉ sử dụng các thông tin này với database demo.
 
 ## Chạy local
 
-Yêu cầu Node.js và MongoDB.
+Yêu cầu Node.js `20.9+`, npm và MongoDB.
 
 ### Backend
 
@@ -99,9 +120,33 @@ Tạo `FE/.env.local`:
 ```env
 NEXT_PUBLIC_API_URL=http://localhost:3001/v1
 NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_API_TIMEOUT=30000
 ```
 
 Frontend chạy tại `http://localhost:3000`, backend mặc định tại `http://localhost:3001`.
+
+## Thông số frontend
+
+| Hạng mục | Giá trị mặc định |
+| --- | --- |
+| Frontend port | `3000` |
+| Backend API port | `3001` |
+| API timeout | `30 giây` |
+| Số bản ghi mỗi trang | `20` |
+| Tùy chọn số bản ghi | `10`, `20`, `50`, `100` |
+| Ảnh hỗ trợ | JPEG, PNG, WebP |
+| Kích thước ảnh tối đa | `5 MB` |
+| Build output | Next.js standalone |
+
+## Kiểm tra và build
+
+```bash
+cd FE
+npm run check
+npm run build
+npm start
+```
 
 ## Cấu trúc
 
