@@ -4,7 +4,7 @@ Full-stack demo mô phỏng một nền tảng quản lý và phân phối tài 
 
 ## Tuyên bố miễn trừ trách nhiệm
 
-Dự án từng được triển khai và vận hành thực tế như một hệ thống thương mại điện tử kinh doanh tài khoản trò chơi. Tuy nhiên, do thay đổi về quy định và định hướng hoạt động, dự án đã ngừng kinh doanh và không còn cung cấp dịch vụ cho người dùng.
+Dự án từng được triển khai và vận hành thực tế như một hệ thống thương mại điện tử kinh doanh tài khoản trò chơi. Tuy nhiên, do thay đổi của các quy định pháp luật có liên quan, dự án đã ngừng kinh doanh và không còn cung cấp dịch vụ cho người dùng.
 
 Phiên bản mã nguồn hiện tại chỉ được lưu trữ nhằm mục đích học tập, nghiên cứu, trình diễn kỹ thuật và sử dụng trong portfolio. Các chức năng thanh toán, tích hợp dịch vụ bên thứ ba và dữ liệu nhạy cảm đã được loại bỏ hoặc vô hiệu hóa. Toàn bộ sản phẩm, tài khoản, giá bán, giao dịch và thông tin còn hiển thị đều là dữ liệu mô phỏng; hệ thống không tiếp nhận thanh toán hoặc phát sinh hoạt động mua bán thực tế.
 
